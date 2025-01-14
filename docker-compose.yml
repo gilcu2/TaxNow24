@@ -38,7 +38,7 @@ services:
       - eventbridge-producer
 
   backend:
-    build: ./backend/java
+    build: ./backend/python
     ports:
       - 8081:8080
 
