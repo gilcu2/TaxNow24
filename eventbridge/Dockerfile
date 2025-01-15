@@ -1,5 +1,6 @@
 FROM python:3.10
-RUN apt update && apt install -y librdkafka-dev python-dev && apt autoclean
+#RUN apt update && apt install -y librdkafka-dev python-dev && apt autoclean
+RUN apt update && apt install -y librdkafka-dev python-dev-is-python3 && apt autoclean
 WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
