@@ -37,17 +37,17 @@ services:
     depends_on:
       - eventbridge-producer
 
-  backend:
-    build: ./backend/python
-    ports:
-      - 8081:8080
-
-  frontend:
-    build: ./frontend/
-    ports:
-      - 8080:80
-    depends_on:
-      - backend
+#  backend:
+#    build: ./backend/python
+#    ports:
+#      - 8081:8080
+#
+#  frontend:
+#    build: ./frontend/
+#    ports:
+#      - 8080:80
+#    depends_on:
+#      - backend
 
   job-scheduler:
     build: ./jobscheduler
