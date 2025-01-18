@@ -5,7 +5,9 @@ from tests import SPARK
 
 
 def test_should_partition_test_data():
-    test_data = SPARK.read.csv("tests/integration/fixtures/dataset.csv")
+    # test_data = SPARK.createDataFrame("tests/integration/fixtures/dataset.csv")
+    test_data_initial = SPARK.read.csv("tests/integration/fixtures/dataset.csv",header=True,inferSchema=True)
+    test_data=test_data_initial
 
     actual = partition_events(SPARK, test_data)
     expected = SPARK.createDataFrame(
@@ -88,4 +90,10 @@ def test_should_partition_test_data():
         ],
     )
 
-    assert expected.collect() == actual.collect()
+    expected.show(truncate=False)
+    actual.show(truncate=False)
+
+    expected_collected=expected.collect()
+    actual_collected=actual.collect()
+
+    assert actual_collected == expected_collected
