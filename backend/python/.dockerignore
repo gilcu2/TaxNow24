@@ -1,0 +1,7 @@
+.idea
+.git
+.venv
+.mypy_cache
+.pytest_cache
+datalake
+poetry.lock
