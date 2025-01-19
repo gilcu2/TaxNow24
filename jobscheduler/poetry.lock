@@ -876,13 +876,13 @@ files = [
 
 [[package]]
 name = "click"
-version = "8.1.8"
+version = "8.0.4"
 description = "Composable command line interface toolkit"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.6"
 files = [
-    {file = "click-8.1.8-py3-none-any.whl", hash = "sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2"},
-    {file = "click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"},
+    {file = "click-8.0.4-py3-none-any.whl", hash = "sha256:6a7a62563bbfabfda3a38f3023a1db4a35978c0abd76f6c9605ecd6554d6d9b1"},
+    {file = "click-8.0.4.tar.gz", hash = "sha256:8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"},
 ]
 
 [package.dependencies]
@@ -1235,13 +1235,13 @@ asymmetric-crypto = ["cryptography (>=3.3.1)"]
 
 [[package]]
 name = "flask-limiter"
-version = "3.10.0"
+version = "3.10.1"
 description = "Rate limiting for flask applications"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "Flask_Limiter-3.10.0-py3-none-any.whl", hash = "sha256:640ba763e05eb66bad3976d218b57c11c04c21e9ce42d20767975e7369e2ddcd"},
-    {file = "flask_limiter-3.10.0.tar.gz", hash = "sha256:4b54cc4f4d254147a78967e58db2e9339f72f7cffb84fbfd1c6fcbf13b198960"},
+    {file = "Flask_Limiter-3.10.1-py3-none-any.whl", hash = "sha256:afa3bfa9854dd2d3267816fcfcdfa91bcadf055acc4d2461119a2670306fbccb"},
+    {file = "flask_limiter-3.10.1.tar.gz", hash = "sha256:5ff8395f2acbc565ba6af43dc4b9c5b0a3665989681791d01dfaa6388bb332c6"},
 ]
 
 [package.dependencies]
@@ -1937,13 +1937,13 @@ files = [
 
 [[package]]
 name = "limits"
-version = "4.0.0"
+version = "4.0.1"
 description = "Rate limiting utilities"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "limits-4.0.0-py3-none-any.whl", hash = "sha256:0024ebe5a36c905fcff2d30a8e7680840b75ecdb989db10c526e9fabba529b58"},
-    {file = "limits-4.0.0.tar.gz", hash = "sha256:0516cec7c0803e0e1ecd48ad2f75547b85e2be5fb343a24e033f1316f5487e31"},
+    {file = "limits-4.0.1-py3-none-any.whl", hash = "sha256:67667e669f570cf7be4e2c2bc52f763b3f93bdf66ea945584360bc1a3f251901"},
+    {file = "limits-4.0.1.tar.gz", hash = "sha256:a54f5c058dfc965319ae3ee78faf222294659e371b46d22cd7456761f7e46d5a"},
 ]
 
 [package.dependencies]
@@ -3281,18 +3281,19 @@ files = [
 
 [[package]]
 name = "referencing"
-version = "0.35.1"
+version = "0.36.1"
 description = "JSON Referencing + Python"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 files = [
-    {file = "referencing-0.35.1-py3-none-any.whl", hash = "sha256:eda6d3234d62814d1c64e305c1331c9a3a6132da475ab6382eaa997b21ee75de"},
-    {file = "referencing-0.35.1.tar.gz", hash = "sha256:25b42124a6c8b632a425174f24087783efb348a6f1e0008e63cd4466fedf703c"},
+    {file = "referencing-0.36.1-py3-none-any.whl", hash = "sha256:363d9c65f080d0d70bc41c721dce3c7f3e77fc09f269cd5c8813da18069a6794"},
+    {file = "referencing-0.36.1.tar.gz", hash = "sha256:ca2e6492769e3602957e9b831b94211599d2aade9477f5d44110d2530cf9aade"},
 ]
 
 [package.dependencies]
 attrs = ">=22.2.0"
 rpds-py = ">=0.7.0"
+typing-extensions = {version = ">=4.4.0", markers = "python_version < \"3.13\""}
 
 [[package]]
 name = "requests"
@@ -4148,4 +4149,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "41d51eea74099741a586c5523bc70d2fb15da0d7304fe8223b1791b98359e9f5"
+content-hash = "09c2566be8da9551508b1185eadb7b53996b3cd48c0d9a9deaea5cd1db99e5f2"

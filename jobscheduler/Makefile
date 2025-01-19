@@ -34,3 +34,25 @@ requirements.txt: ## Creates requirements.txt file
 .PHONY: run
 run:  ## Runs this service
 	AIRFLOW_HOME=$(SRC_PATH) poetry run airflow standalone
+
+.PHONY: lint
+lint: ## Checks code formatting and style
+	poetry run pylint $(SRC_PATH)
+
+.PHONY: auto-format
+auto-format: ## Automatically formats the code
+	poetry run black $(SRC_PATH) ./tests
+
+.PHONY: unit-test
+unit-test: ## Runs all unit tests
+	poetry run pytest -v -s ./tests/unit
+
+.PHONY: integration-test
+integration-test: ## Runs all integration tests
+	poetry run pytest -v -s ./tests/integration
+
+.PHONY: test
+test: unit-test integration-test ## Runs all tests
+
+.PHONY: check
+check: auto-format lint type-check test ## Runs all code checks and tests
