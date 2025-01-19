@@ -1,16 +1,13 @@
 from datetime import datetime
 
 from jobs.order_io import read_order_csv
-from jobs.event_partitioning import partition_events
 from tests import SPARK
 
 
-def test_should_partition_test_data():
-    # test_data = SPARK.createDataFrame("tests/integration/fixtures/dataset.csv")
+def test_read_orders():
     filename = "tests/integration/fixtures/dataset.csv"
-    test_data = read_order_csv(SPARK, filename)
+    actual = read_order_csv(SPARK, filename)
 
-    actual = partition_events(SPARK, test_data)
     expected = SPARK.createDataFrame(
         [
             [
@@ -94,7 +91,7 @@ def test_should_partition_test_data():
     expected.show(truncate=False)
     actual.show(truncate=False)
 
-    expected_collected=expected.collect()
-    actual_collected=actual.collect()
+    expected_collected = expected.collect()
+    actual_collected = actual.collect()
 
     assert actual_collected == expected_collected
