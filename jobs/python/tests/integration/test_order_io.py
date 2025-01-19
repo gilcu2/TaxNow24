@@ -2,6 +2,7 @@ from datetime import datetime
 
 from jobs.order_io import read_order_csv
 from tests import SPARK
+from chispa.dataframe_comparer import assert_df_equality
 
 
 def test_read_orders():
@@ -18,12 +19,6 @@ def test_read_orders():
                 datetime(2017, 9, 19, 9, 45, 35),
                 58.90,
                 13.29,
-                2017,
-                9,
-                19,
-                9,
-                45,
-                35,
             ],
             [
                 "00018f77f2f0320c557190d7a144bdd3",
@@ -33,12 +28,6 @@ def test_read_orders():
                 datetime(2017, 5, 3, 11, 5, 13),
                 239.90,
                 19.93,
-                2017,
-                5,
-                3,
-                11,
-                5,
-                13,
             ],
             [
                 "00024acbcdf0a6daa1e931b038114c75",
@@ -48,12 +37,6 @@ def test_read_orders():
                 datetime(2018, 8, 15, 10, 10, 18),
                 12.99,
                 12.79,
-                2018,
-                8,
-                15,
-                10,
-                10,
-                18,
             ],
             [
                 "0005a1a1728c9d785b8e2b08b904576c",
@@ -63,12 +46,6 @@ def test_read_orders():
                 datetime(2018, 3, 26, 18, 31, 29),
                 145.95001,
                 11.65,
-                2018,
-                3,
-                26,
-                18,
-                31,
-                29,
             ],
         ],
         [
@@ -79,19 +56,7 @@ def test_read_orders():
             "shipping_limit_date",
             "price",
             "freight_value",
-            "year",
-            "month",
-            "day",
-            "hour",
-            "minute",
-            "second",
         ],
     )
 
-    expected.show(truncate=False)
-    actual.show(truncate=False)
-
-    expected_collected = expected.collect()
-    actual_collected = actual.collect()
-
-    assert actual_collected == expected_collected
+    assert_df_equality(actual, expected)

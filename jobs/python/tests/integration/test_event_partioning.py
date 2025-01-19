@@ -3,6 +3,7 @@ from datetime import datetime
 from jobs.order_io import read_order_csv
 from jobs.event_partitioning import partition_events
 from tests import SPARK
+from chispa.dataframe_comparer import assert_df_equality
 
 
 def test_should_partition_test_data():
@@ -91,10 +92,4 @@ def test_should_partition_test_data():
         ],
     )
 
-    expected.show(truncate=False)
-    actual.show(truncate=False)
-
-    expected_collected=expected.collect()
-    actual_collected=actual.collect()
-
-    assert actual_collected == expected_collected
+    assert_df_equality(actual, expected)
