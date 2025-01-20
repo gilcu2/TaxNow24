@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from jobs.order_io import read_order_csv
+from jobs.event_read_csv import read_order_csv
 from tests import SPARK
 from chispa.dataframe_comparer import assert_df_equality
 
