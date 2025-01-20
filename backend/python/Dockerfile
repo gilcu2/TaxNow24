@@ -1,0 +1,9 @@
+FROM python:3.10-slim-buster
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY taxnow24 ./taxnow24
+ENV FLASK_APP=taxnow24
+
+CMD [ "python", "-m" , "flask", "run"]

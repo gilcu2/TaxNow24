@@ -19,5 +19,6 @@ make run
 You can login with:
 ```
 username: admin
-password: dy7Qc2xZyV7GTUnw
+#password: dy7Qc2xZyV7GTUnw
+password: DvGC6SFZBsQ8PsK3
 ```

@@ -5,8 +5,9 @@ description = ""
 authors = ["TaxNow24 <engineering@taxnow24.io>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-apache-airflow = "^2.4.1"
+python = ">=3.10,<3.13"
+#apache-airflow = "^2.4.1"
+apache-airflow = "^2.9.3"
 click = "=8.0.4"
 
 [tool.poetry.dev-dependencies]
