@@ -63,7 +63,12 @@ make lint
 make type-check
 ```
 
-## Run locally
+### Check types
+```bash
+make deploy
+```
+
+## Run locally (after deploy)
 To run locally:
 ```bash
 JOB_RUN_FILE="jobs/run_<job_name>.py" INPUT_FILE="<input_file>" OUTPUT_FILE="<output_file>" make run
