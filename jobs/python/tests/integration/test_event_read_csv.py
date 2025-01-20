@@ -1,13 +1,13 @@
 from datetime import datetime
 
-from jobs.event_read_csv import read_order_csv
+from jobs.event_read_csv import read_event_csv
 from tests import SPARK
 from chispa.dataframe_comparer import assert_df_equality
 
 
 def test_read_orders():
     filename = "tests/integration/fixtures/dataset.csv"
-    actual = read_order_csv(SPARK, filename)
+    actual = read_event_csv(SPARK, filename)
 
     expected = SPARK.createDataFrame(
         [

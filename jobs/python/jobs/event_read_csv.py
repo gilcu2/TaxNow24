@@ -22,7 +22,7 @@ from pyspark.sql.types import (
 )
 
 
-def read_order_csv(spark: SparkSession, filename: str) -> DataFrame:
+def read_event_csv(spark: SparkSession, filename: str) -> DataFrame:
     schema = StructType(
         [
             StructField("order_id", StringType()),
@@ -37,7 +37,7 @@ def read_order_csv(spark: SparkSession, filename: str) -> DataFrame:
 
     df = (
         spark.read.schema(schema)
-        .options(header=True, enableDateTimeParsingFallback=True)
+        .options(header=True)
         .csv(filename)
     )
     without_null = df.filter(df.product_id.isNotNull())

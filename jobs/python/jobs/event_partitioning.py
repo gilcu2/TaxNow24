@@ -12,6 +12,7 @@ from pyspark.sql.functions import (
     col,
     from_unixtime,
 )
+from event_read_csv import read_event_csv
 
 from pyspark.sql.types import (
     StructField,
@@ -33,11 +34,12 @@ def partition_events(spark: SparkSession, dataframe: DataFrame) -> DataFrame:
         .withColumn("minute", minute("shipping_limit_date").cast(LongType()))
         .withColumn("second", second("shipping_limit_date").cast(LongType()))
     )
+
     return with_partitions_columns
 
 
 def run(spark: SparkSession, input_path: str, output_path: str) -> None:
-    input_dataset = spark.read.csv(input_path)
+    input_dataset = read_event_csv(spark, input_path)
     input_dataset.show()
 
     partitioned_events = partition_events(spark, input_dataset)

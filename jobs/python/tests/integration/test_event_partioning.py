@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from jobs.event_read_csv import read_order_csv
+from jobs.event_read_csv import read_event_csv
 from jobs.event_partitioning import partition_events
 from tests import SPARK
 from chispa.dataframe_comparer import assert_df_equality
@@ -9,7 +9,7 @@ from chispa.dataframe_comparer import assert_df_equality
 def test_should_partition_test_data():
     # test_data = SPARK.createDataFrame("tests/integration/fixtures/dataset.csv")
     filename = "tests/integration/fixtures/dataset.csv"
-    test_data = read_order_csv(SPARK, filename)
+    test_data = read_event_csv(SPARK, filename)
 
     actual = partition_events(SPARK, test_data)
     expected = SPARK.createDataFrame(

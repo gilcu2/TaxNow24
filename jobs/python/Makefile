@@ -18,6 +18,8 @@ endef
 export PRINT_HELP_PYSCRIPT
 
 SRC_PATH := "./jobs"
+PYTHONPATH := "."
+
 
 .PHONY: help
 help: ## Shows help for targets with help text
@@ -61,18 +63,20 @@ check: auto-format lint type-check test ## Runs all code checks and tests
 .PHONY: deploy
 deploy: ## Deploys jobs into datalake
 	poetry build
-	cp ./dist/jobs-*.whl ../datalake/jobs
-	cp ./jobs/run_*.py ../datalake/jobs
+	cp ./dist/jobs-*.whl ../../datalake/jobs
+	cp ./jobs/run_*.py ../../datalake/jobs
 
 .PHONY: run
 run: ## Run a specific job locally
 	poetry run spark-submit \
         --master local \
-        --packages org.apache.spark:spark-avro_2.12:3.2.1 \
         --py-files dist/jobs-*.whl \
+        --packages org.apache.spark:spark-avro_2.12:3.5.4 \
         $(JOB_RUN_FILE) \
         $(INPUT_FILE) \
         $(OUTPUT_FILE)
+
+        #
 
 .PHONY: check-setup
 check-setup: ## Check if the setup with all dependencies is working as needed
