@@ -35,7 +35,9 @@ def partition_events(spark: SparkSession, dataframe: DataFrame) -> DataFrame:
         .withColumn("second", second("shipping_limit_date").cast(LongType()))
     )
 
-    return with_partitions_columns
+    partitioned = with_partitions_columns.repartition(4, "year", "month", "day", "hour", "minute", "second")
+
+    return partitioned
 
 
 def run(spark: SparkSession, input_path: str, output_path: str) -> None:
@@ -45,4 +47,4 @@ def run(spark: SparkSession, input_path: str, output_path: str) -> None:
     partitioned_events = partition_events(spark, input_dataset)
     partitioned_events.show()
 
-    partitioned_events.write.format("avro").save(output_path, mode="append")
+    partitioned_events.write.mode("overwrite").format("avro").save(output_path, mode="append")

@@ -63,3 +63,4 @@ def test_should_return_one_event_with_date_transformed():
     )
 
     assert expected.collect() == actual.collect()
+    assert actual.rdd.getNumPartitions() > 1
